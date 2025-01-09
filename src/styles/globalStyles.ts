@@ -3,6 +3,7 @@ import { colorPalette } from './colorPalette'
 
 export default css`
     ${colorPalette}
+
     :root {
         --dimmed-zindex: 10;
         --alert-zindex: 11;
@@ -96,9 +97,7 @@ export default css`
         font: inherit;
         vertical-align: baseline;
     }
-
     /* HTML5 display-role reset for older browsers */
-
     article,
     aside,
     details,
@@ -112,21 +111,17 @@ export default css`
     section {
         display: block;
     }
-
     body {
         line-height: 1;
     }
-
     ol,
     ul {
         list-style: none;
     }
-
     blockquote,
     q {
         quotes: none;
     }
-
     blockquote:before,
     blockquote:after,
     q:before,
@@ -134,12 +129,10 @@ export default css`
         content: '';
         content: none;
     }
-
     table {
         border-collapse: collapse;
         border-spacing: 0;
     }
-
     button {
         border: none;
         margin: 0;
@@ -150,5 +143,9 @@ export default css`
         color: inherit;
         font: inherit;
         line-height: normal;
+    }
+    a {
+        color: inherit;
+        text-decoration: inherit;
     }
 `
