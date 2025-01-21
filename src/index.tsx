@@ -5,6 +5,8 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Global } from '@emotion/react'
 import globalStyles from '@/styles/globalStyles'
+
+import AuthGuard from '@components/auth/AuthGuard'
 import { AlertContextProvider } from '@/context/AlertContext'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -18,7 +20,9 @@ root.render(
         <Global styles={globalStyles} />
         <QueryClientProvider client={client}>
             <AlertContextProvider>
-                <App />
+                <AuthGuard>
+                    <App />
+                </AuthGuard>
             </AlertContextProvider>
         </QueryClientProvider>
     </React.StrictMode>,
