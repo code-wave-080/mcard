@@ -2665,7 +2665,7 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
-"@types/lodash.flatten@^4.4.7":
+"@types/lodash.flatten@^4.4.9":
   version "4.4.9"
   resolved "https://registry.yarnpkg.com/@types/lodash.flatten/-/lodash.flatten-4.4.9.tgz#0fc83527fdc014418ea83dba0ef015d339306652"
   integrity sha512-JCW9xofpn9oJfFSccpBRF8IrB5guqmcKZIa7J9DnZqLd9wgGYbewaYnjbNw3Fb+St8BHVsnGmmS0A3j99LII3Q==
@@ -10501,7 +10501,7 @@ webidl-conversions@^6.1.0:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-6.1.0.tgz#9111b4d7ea80acd40f5270d666621afa78b69514"
   integrity sha512-qBIvFLGiBpLjfwmYAaHPXsn+ho5xZnGvyGvsarywGNc8VyQJUMHJ8OBKGGrPER0okBeMDaan4mNBlgBROxuI8w==
 
-webpack-bundle-analyzer@^4.9.1:
+webpack-bundle-analyzer@^4.10.2:
   version "4.10.2"
   resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.10.2.tgz#633af2862c213730be3dbdf40456db171b60d5bd"
   integrity sha512-vJptkMm9pk5si4Bv922ZbKLV8UTT4zib4FPgXMhgzUny0bfDDkLXAVQs3ly3fS4/TN9ROFtb0NFrm04UXFE/Vw==
