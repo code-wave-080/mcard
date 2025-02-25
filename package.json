@@ -56,7 +56,7 @@
         "@craco/craco": "^7.1.0",
         "@emotion/babel-plugin": "^11.11.0",
         "@testing-library/jest-dom": "^6.0.1",
-        "@types/lodash.flatten": "^4.4.7",
+        "@types/lodash.flatten": "^4.4.9",
         "@types/qs": "^6.9.18",
         "@types/testing-library__jest-dom": "^6.0.0",
         "@types/validator": "^13.11.1",
@@ -67,6 +67,6 @@
         "eslint-plugin-prettier": "^5.0.0",
         "eslint-plugin-react": "^7.33.2",
         "prettier": "^3.0.2",
-        "webpack-bundle-analyzer": "^4.9.1"
+        "webpack-bundle-analyzer": "^4.10.2"
     }
 }
