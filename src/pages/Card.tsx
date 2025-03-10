@@ -10,8 +10,11 @@ import { getCard } from '@remote/card'
 import FixedBottomButton from '@shared/FixedBottomButton'
 import Flex from '@shared/Flex'
 import Text from '@shared/Text'
+import Spacing from '@shared/Spacing'
 import useUser from '@hooks/auth/useUser'
 import { useAlertContext } from '@contexts/AlertContext'
+
+import Review from '@components/card/Review'
 
 function CardPage() {
     const { id = '' } = useParams()
@@ -94,6 +97,12 @@ function CardPage() {
                     </Text>
                 </Flex>
             ) : null}
+
+            <Spacing size={1000} />
+
+            <Review />
+
+            <Spacing size={100} />
 
             <FixedBottomButton
                 label="1분만에 신청하고 혜택받기"
