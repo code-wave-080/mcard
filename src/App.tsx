@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@shared/ScrollToTop'
 import HomePage from '@pages/Home'
 import TestPage from '@pages/Test'
 import CardPage from '@pages/Card'
@@ -10,50 +9,61 @@ import SignupPage from '@pages/Signup'
 import ApplyPage from '@pages/Apply'
 import ApplyDone from '@pages/ApplyDone'
 import MyPage from '@pages/My'
+import Layout from '@layout/Layout'
 
 import PrivateRoute from '@components/auth/PrivateRoute'
-import Navbar from '@shared/Navbar'
 
-function App() {
-    return (
-        <BrowserRouter future={{ v7_startTransition: true }}>
-            <ScrollToTop />
-            <Navbar />
-            <Routes>
-                <Route path="/" Component={HomePage} />
-                <Route path="/signin" Component={SigninPage} />
-                <Route path="/signup" Component={SignupPage} />
-                <Route path="/card/:id" Component={CardPage} />
-                <Route
-                    path="/apply/:id"
-                    element={
+const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <Layout />, // ✅ 모든 페이지 공통 레이아웃
+            children: [
+                { index: true, element: <HomePage /> },
+                { path: 'signin', element: <SigninPage /> },
+                { path: 'signup', element: <SignupPage /> },
+                { path: 'card/:id', element: <CardPage /> },
+                {
+                    path: 'apply/:id',
+                    element: (
                         <PrivateRoute>
                             <Suspense fallback={<></>}>
                                 <ApplyPage />
                             </Suspense>
                         </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/apply/done"
-                    element={
+                    ),
+                },
+                {
+                    path: 'apply/done',
+                    element: (
                         <PrivateRoute>
                             <ApplyDone />
                         </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/my"
-                    element={
+                    ),
+                },
+                {
+                    path: 'my',
+                    element: (
                         <PrivateRoute>
                             <MyPage />
                         </PrivateRoute>
-                    }
-                />
-                <Route path="/test" Component={TestPage} />
-            </Routes>
-        </BrowserRouter>
-    )
+                    ),
+                },
+                { path: 'test', element: <TestPage /> },
+            ],
+        },
+    ],
+    {
+        future: {
+            // @ts-expect-error: not yet in type defs
+            v7_relativeSplatPath: true,
+            v7_startTransition: true,
+        },
+    },
+)
+
+function App() {
+    return <RouterProvider router={router} />
 }
 
 export default App
