@@ -30,7 +30,7 @@ function CardList() {
     const navigate = useNavigate()
 
     const loadMore = useCallback(() => {
-        if (hasNextPage === false || isFetching) {
+        if (!hasNextPage || isFetching) {
             return
         }
 
