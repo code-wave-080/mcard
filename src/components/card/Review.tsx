@@ -32,7 +32,7 @@ function Review() {
                     <Skeleton width={30} height={10} />
                 </>
             ) : (
-                data.map((review) => <div>{review}</div>)
+                data.map((review) => <div key={review}>{review}</div>)
             )}
         </div>
     )
