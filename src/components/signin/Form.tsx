@@ -34,7 +34,6 @@ function Form({ onSubmit }: { onSubmit: (formValues: FormValues) => void }) {
             <TextField
                 label="이메일"
                 name="email"
-                placeholder="olaf@gmail.com"
                 onChange={handleFormValues}
                 value={formValues.email}
             />
