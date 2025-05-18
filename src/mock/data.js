@@ -383,11 +383,11 @@ export const adBanners = [
     {
         title: 'Easy all 카드',
         description: '기간이 얼마 남지 않았어요',
-        link: '/card/0FCQ0P3fHwIuHfEkFb98',
+        link: '/card/Hp3sEogV8u7ii6OTK80L',
     },
     {
         title: '굿데이올림카드',
         description: '신규회원 연회비 지원해드려요',
-        link: '/card/1A1vyiHfHyZagksPfvsS',
+        link: '/card/kerdYncjb4NC7trcetJe',
     },
 ]
