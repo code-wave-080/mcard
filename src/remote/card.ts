@@ -17,11 +17,11 @@ import { Card } from '@models/card'
 export async function getCards(pageParam?: QuerySnapshot<Card>) {
     const cardQuery =
         pageParam == null
-            ? query(collection(store, COLLECTIONS.CARD), limit(10))
+            ? query(collection(store, COLLECTIONS.CARD), limit(20))
             : query(
                   collection(store, COLLECTIONS.CARD),
                   startAfter(pageParam),
-                  limit(10),
+                  limit(20),
               )
 
     const cardSnapshot = await getDocs(cardQuery)
