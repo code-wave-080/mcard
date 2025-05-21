@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer'
 
 import Skeleton from '@shared/Skeleton'
 import Spacing from '@shared/Spacing'
+import Text from '@shared/Text'
 
 function Review() {
     const { ref, inView } = useInView({
@@ -24,7 +25,15 @@ function Review() {
     )
 
     return (
-        <div ref={ref}>
+        <div
+            ref={ref}
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '5px',
+                marginTop: '2px',
+            }}
+        >
             {isLoading ? (
                 <>
                     <Skeleton width={30} height={10} />
@@ -32,7 +41,14 @@ function Review() {
                     <Skeleton width={30} height={10} />
                 </>
             ) : (
-                data.map((review) => <div key={review}>{review}</div>)
+                data.map((review) => (
+                    <div key={review} style={{ display: 'flex' }}>
+                        <Text typography="t6">{review}</Text>
+                        <Text typography="t7" style={{ marginLeft: 'auto' }}>
+                            2025-05-22
+                        </Text>
+                    </div>
+                ))
             )}
         </div>
     )

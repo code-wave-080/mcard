@@ -98,9 +98,10 @@ function CardPage() {
                 </Flex>
             ) : null}
 
-            <Spacing size={1000} />
-
-            <Review />
+            <Flex direction="column" css={termsContainerStyles}>
+                <Text bold={true}>리뷰</Text>
+                <Review />
+            </Flex>
 
             <Spacing size={100} />
 
@@ -141,12 +142,12 @@ function IconCheck() {
 }
 
 function removeHtmlTags(text: string) {
-    return text.replace(/<\/?[^>]+(>|$)/g, '')
+    return text?.replace(/<\/?[^>]+(>|$)/g, '')
 }
 
 const termsContainerStyles = css`
     margin-top: 80px;
-    padding: 0 24px 80px 24px;
+    padding: 0 24px;
 `
 
 export default CardPage
