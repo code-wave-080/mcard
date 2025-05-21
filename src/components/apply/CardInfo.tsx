@@ -34,7 +34,7 @@ function CardInfo({
     )
 
     return (
-        <div>
+        <div style={{ paddingTop: '24px' }}>
             <Button.Group title="해외결제">
                 <Button
                     name="isMaster"

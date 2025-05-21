@@ -30,7 +30,14 @@ function BasicInfo({ onNext }: { onNext: (infoValues: InfoValues) => void }) {
     )
 
     return (
-        <div>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '20px',
+                paddingTop: '24px',
+            }}
+        >
             <Select
                 name="salary"
                 label="연소득"

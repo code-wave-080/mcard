@@ -102,7 +102,7 @@ function IconCheck({
 }
 
 const agreementContainerStyles = css`
-    padding: 24px;
+    padding-top: 20px;
     & li {
         cursor: pointer;
     }

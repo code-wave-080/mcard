@@ -74,7 +74,7 @@ function Apply({ onSubmit }: { onSubmit: (applyValues: ApplyValues) => void }) {
     }
 
     return (
-        <div>
+        <div style={{ padding: '24px' }}>
             <ProgressBar progress={(applyValues.step as number) / LAST_STEP} />
             {applyValues.step === 0 ? (
                 <Terms onNext={handleTermsChange} />
