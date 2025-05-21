@@ -41,7 +41,6 @@ function Form({ onSubmit }: { onSubmit: (formValues: FormValues) => void }) {
             <TextField
                 label="이메일"
                 name="email"
-                placeholder="olaf@gmail.com"
                 value={formValues.email}
                 onChange={handleFormValues}
                 hasError={Boolean(dirty.email) && Boolean(errors.email)}
@@ -76,7 +75,6 @@ function Form({ onSubmit }: { onSubmit: (formValues: FormValues) => void }) {
             <TextField
                 label="이름"
                 name="name"
-                placeholder="올라프"
                 value={formValues.name}
                 onChange={handleFormValues}
                 hasError={Boolean(dirty.name) && Boolean(errors.name)}
