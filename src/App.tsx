@@ -55,7 +55,6 @@ const router = createBrowserRouter(
     ],
     {
         future: {
-            // @ts-expect-error: not yet in type defs
             v7_relativeSplatPath: true,
             v7_startTransition: true,
         },
