@@ -20,7 +20,7 @@ const IconWrapper = styled.div`
 
 const ContentWrapper = styled(Flex)`
     flex: 1;
-    margin-top: -120px; // 상단 여백 조절
+    margin-top: -120px;
 `
 
 function CheckIcon() {
