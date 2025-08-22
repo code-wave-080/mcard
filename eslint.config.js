@@ -1,33 +1,43 @@
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
-import { FlatCompat } from '@eslint/compat'
-import path from 'node:path'
-import url from 'node:url'
-
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-})
+import prettierPlugin from 'eslint-plugin-prettier'
 
 export default [
     ...tseslint.configs.recommended,
-    ...compat.extends('react-app', 'react-app/jest'),
-
     {
-        files: ['src/**/*.{js,jsx,ts,tsx}'],
+        files: ['src/**/*.{ts,tsx}'],
         languageOptions: {
-            ecmaVersion: 'latest',
-            sourceType: 'module',
-            globals: {
-                ...globals.browser,
-                ...globals.node,
-            },
+            parser: tseslint.parser,
             parserOptions: {
-                ecmaFeatures: { jsx: true },
+                projectService: true,
+                tsconfigRootDir: import.meta.dirname,
+                ecmaVersion: 'latest',
+                sourceType: 'module',
             },
+            globals: { ...globals.browser, ...globals.node },
+        },
+        plugins: {
+            prettier: prettierPlugin,
         },
         rules: {
             'prettier/prettier': 'error',
         },
+    },
+    // JS/JSX 파일
+    {
+        files: ['src/**/*.{js,jsx}'],
+        languageOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            globals: { ...globals.browser, ...globals.node },
+        },
+        plugins: { prettier: prettierPlugin },
+        rules: {
+            'prettier/prettier': 'error',
+        },
+    },
+    // 무시
+    {
+        ignores: ['dist', 'build', 'node_modules'],
     },
 ]
