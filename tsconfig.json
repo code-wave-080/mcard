@@ -22,7 +22,7 @@
             "@hooks/*": ["src/hooks/*"],
             "@layout/*": ["src/layout/*"]
         },
-        "allowJs": false,
+        "allowJs": true,
         "strict": true,
         "noEmit": true,
         "resolveJsonModule": true,
