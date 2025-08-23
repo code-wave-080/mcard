@@ -13,13 +13,13 @@ const client = new QueryClient({
             suspense: true,
             refetchOnWindowFocus: false,
             retry: 1,
-        }
-    }
+        },
+    },
 })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <Global styles={(appGlobalStyles)} />
+        <Global styles={appGlobalStyles} />
         <RecoilRoot>
             <QueryClientProvider client={client}>
                 <AlertContextProvider>

@@ -4,7 +4,7 @@ type ReportHandler = (metric: Metric) => void
 
 const reportWebVitals = async (onPerfEntry?: ReportHandler) => {
     if (!onPerfEntry) {
-        return;
+        return
     }
 
     const { onCLS, onFCP, onLCP, onTTFB, onINP } = await import('web-vitals')

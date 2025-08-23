@@ -68,7 +68,7 @@ function Form({ onSubmit }: { onSubmit: (formValues: FormValues) => void }) {
 }
 
 function validate(formValues: FormValues) {
-    let errors: Partial<FormValues> = {}
+    const errors: Partial<FormValues> = {}
 
     if (validator.isEmail(formValues.email) === false) {
         errors.email = '이메일 형식을 확인해주세요'
