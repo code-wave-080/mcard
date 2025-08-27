@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query'
+import { useMutation } from '@tanstack/react-query'
 
 import { applyCard } from '@remote/apply'
 import { ApplyValues } from '@models/apply'
@@ -16,7 +16,8 @@ function useApplyCardMutation({
 }: useApplyCardMutationProps) {
     const { open } = useAlertContext()
 
-    return useMutation((applyValues: ApplyValues) => applyCard(applyValues), {
+    return useMutation({
+        mutationFn: (applyValues: ApplyValues) => applyCard(applyValues),
         onSuccess: () => {
             onSuccess()
         },

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -12,7 +12,10 @@ import { colors } from '@styles/colorPalette'
 import 'swiper/css'
 
 function AdBanners() {
-    const { data, isLoading } = useQuery(['adBanners'], () => getAdBanners())
+    const { data, isLoading } = useQuery({
+        queryKey: ['adBanners'],
+        queryFn: () => getAdBanners(),
+    })
 
     if (data == null || isLoading) {
         return (

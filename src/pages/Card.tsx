@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { css } from '@emotion/react'
 import { motion } from 'framer-motion'
 import { useCallback } from 'react'
@@ -23,7 +23,9 @@ function CardPage() {
 
     const navigate = useNavigate()
 
-    const { data } = useQuery(['card', id], () => getCard(id), {
+    const { data } = useQuery({
+        queryKey: ['card', id],
+        queryFn: () => getCard(id),
         enabled: id !== '',
     })
 
