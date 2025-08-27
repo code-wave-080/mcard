@@ -1,6 +1,7 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
 import { APPLY_STATUS } from '@models/apply'
+import { useEffect } from 'react'
 
 interface usePollApplyStatusProps {
     onSuccess: () => void
@@ -13,20 +14,32 @@ function usePollApplyStatus({
     onSuccess,
     onError,
 }: usePollApplyStatusProps) {
-    return useQuery(['applyStatus'], () => getApplyStatus(), {
-        enabled,
-        refetchInterval: 2_000,
-        staleTime: 0,
-        onSuccess: (status) => {
-            console.log('status', status)
+    return (() => {
+        const {
+            data: status,
+            isError,
+        } = useQuery({
+            queryKey: ['applyStatus'],
+            queryFn: () => getApplyStatus(),
+            enabled,
+            refetchInterval: 2000,
+            staleTime: 0,
+        })
+
+        useEffect(() => {
             if (status === APPLY_STATUS.COMPLETE) {
                 onSuccess()
             }
-        },
-        onError: () => {
-            onError()
-        },
-    })
+        }, [status, onSuccess])
+
+        useEffect(() => {
+            if (isError) {
+                onError()
+            }
+        }, [isError, onError])
+
+        return { status }
+    })()
 }
 
 function getApplyStatus() {

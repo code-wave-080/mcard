@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useInView } from 'react-intersection-observer'
 
 import Skeleton from '@shared/Skeleton'
@@ -10,19 +10,16 @@ function Review() {
         triggerOnce: true,
     })
 
-    const { data = [], isLoading } = useQuery(
-        ['review'],
-        () => {
-            return new Promise<string[]>((resolve) => {
+    const { data = [], isLoading } = useQuery<string[]>({
+        queryKey: ['review'],
+        queryFn: () =>
+            new Promise<string[]>((resolve) => {
                 setTimeout(() => {
                     resolve(['너무 좋아요', '꼭 신청하세요 !!'])
-                }, 2_000)
-            })
-        },
-        {
-            enabled: inView,
-        },
-    )
+                }, 2000)
+            }),
+        enabled: inView,
+    })
 
     return (
         <div
