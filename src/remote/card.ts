@@ -1,36 +1,35 @@
 import {
     collection,
-    getDocs,
-    QuerySnapshot,
-    query,
-    limit,
-    startAfter,
     doc,
     getDoc,
+    getDocs,
+    limit,
+    query,
+    QueryDocumentSnapshot,
+    startAfter,
 } from 'firebase/firestore'
 import { store } from './firebase'
-
 import { COLLECTIONS } from '@constants'
 import { Card } from '@models/card'
+import { CardsPage } from '@components/home/CardList'
 
-// pageParam 지금 보이고있는 맨 마지막요소
-export async function getCards(pageParam?: QuerySnapshot<Card>) {
-    const cardQuery =
-        pageParam == null
-            ? query(collection(store, COLLECTIONS.CARD), limit(20))
-            : query(
-                  collection(store, COLLECTIONS.CARD),
-                  startAfter(pageParam),
-                  limit(20),
-              )
+type Cursor = QueryDocumentSnapshot<Card> | null
 
-    const cardSnapshot = await getDocs(cardQuery)
+export async function getCards(cursor: Cursor): Promise<CardsPage> {
+    const base = collection(store, COLLECTIONS.CARD)
 
-    const lastVisible = cardSnapshot.docs[cardSnapshot.docs.length - 1]
+    const q = cursor
+        ? query(base, startAfter(cursor), limit(20))
+        : query(base, limit(20))
 
-    const items = cardSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...(doc.data() as Card),
+    const snap = await getDocs(q)
+
+    const lastVisible =
+        (snap.docs.at(-1) as QueryDocumentSnapshot<Card>) ?? null
+
+    const items = snap.docs.map((d) => ({
+        id: d.id,
+        ...(d.data() as Card),
     }))
 
     return { items, lastVisible }
