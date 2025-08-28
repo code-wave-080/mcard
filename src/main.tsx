@@ -28,5 +28,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 </AlertContextProvider>
             </QueryClientProvider>
         </RecoilRoot>
-    </React.StrictMode>
+    </React.StrictMode>,
 )

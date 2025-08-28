@@ -26,15 +26,18 @@ export type CardsPage = {
 
 function CardList() {
     const { data, hasNextPage, fetchNextPage, isFetchingNextPage } =
-        useSuspenseInfiniteQuery<CardsPage, Error, InfiniteData<CardsPage, Cursor>, [string], Cursor>(
-            {
-                queryKey: ['cards'],
-                queryFn: ({ pageParam }) => getCards(pageParam),
-                initialPageParam: null as Cursor,
-                getNextPageParam: (lastPage) =>
-                    lastPage.lastVisible ?? undefined,
-            },
-        )
+        useSuspenseInfiniteQuery<
+            CardsPage,
+            Error,
+            InfiniteData<CardsPage, Cursor>,
+            [string],
+            Cursor
+        >({
+            queryKey: ['cards'],
+            queryFn: ({ pageParam }) => getCards(pageParam),
+            initialPageParam: null as Cursor,
+            getNextPageParam: (lastPage) => lastPage.lastVisible ?? undefined,
+        })
 
     const navigate = useNavigate()
 

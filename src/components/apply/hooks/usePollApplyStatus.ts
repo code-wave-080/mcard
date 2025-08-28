@@ -15,10 +15,7 @@ function usePollApplyStatus({
     onError,
 }: usePollApplyStatusProps) {
     return (() => {
-        const {
-            data: status,
-            isError,
-        } = useQuery({
+        const { data: status, isError } = useQuery({
             queryKey: ['applyStatus'],
             queryFn: () => getApplyStatus(),
             enabled,
