@@ -3,7 +3,7 @@
         "jsx": "react-jsx",
         "jsxImportSource": "@emotion/react",
         "types": ["vite/client", "@emotion/react/types/css-prop"],
-        "target": "ES2020",
+        "target": "ES2022",
         "module": "ESNext",
         "moduleResolution": "bundler",
         "baseUrl": ".",
